@@ -1,10 +1,16 @@
 import React from 'react'
 import axios from 'axios'
 import SyntaxHighlighter from 'react-syntax-highlighter'
-import { monokaiSublime } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 
+import execCopy from './execCopy'
+
+// styles
 import './CodeExample.sass'
+import { monokaiSublime } from 'react-syntax-highlighter/dist/esm/styles/hljs'
+const hljsStyle = monokaiSublime
+// hljsStyle.hljs.padding = '1em'
 
+// class
 class CodeExample extends React.Component {
   constructor(props) {
     super(props)
@@ -21,28 +27,11 @@ class CodeExample extends React.Component {
     })
   }
 
+  execCopy() {
+    return execCopy(this)
+  }
+
   render() {
-    const execCopy = () => {
-      const self = this
-      let temp = document.createElement('div')
-      temp.appendChild(document.createElement('pre')).textContent = self.state.code
-      let s = temp.style
-      s.position = 'fixed'
-      s.left = '-100%'
-      document.body.appendChild(temp)
-      document.getSelection().selectAllChildren(temp)
-      let result = document.execCommand('copy')
-      document.body.removeChild(temp)
-      if (result) {
-        alert('コピーできました')
-      } else {
-        alert('このブラウザでは対応していません')
-      }
-    }
-
-    const hljsStyle = monokaiSublime
-    hljsStyle.hljs.padding = '1em'
-
     return (
       <div className="box c-code-example">
         <div className="columns">
@@ -56,7 +45,9 @@ class CodeExample extends React.Component {
               <SyntaxHighlighter language="html" style={ hljsStyle }>
                 {this.state.code}
               </SyntaxHighlighter>
-              <div className="button is-small" onClick={execCopy}>
+              <div
+                className="button is-small"
+                onClick={(e) => this.execCopy(e)}>
                 COPY
               </div>
             </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import CodeExample from '@c/CodeExample'
+import CodeExample from '@c/example/CodeExample'
 import {state} from '@/store'
 
 function ButtonColors() {
