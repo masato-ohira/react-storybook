@@ -1,0 +1,68 @@
+
+@charset "utf-8";
+
+// 実体を持たない変数やmixinのみを管理する
+// ------------------------------
+// $primary: #41CE9F;
+// $link   : #5594DF;
+// $success: #8FC43D;
+// $info   : #ff8d00;
+// $warning: #FAC36F;
+// $danger : #C60000;
+
+$body-bg: #f5f5f5;
+
+// $link-focus-border: $link;
+
+
+$text: #555 !default;
+$grey-darker: #555;
+// $white-ter: #fbfbfb;
+// $weight-semibold: 500;
+// $weight-bold: 600;
+
+@import '~bulma/sass/utilities/_all';
+
+// fonts
+$family-serif: "Noto Sans JP", sans-serif;
+$family-primary: $family-serif;
+
+// components vars
+// ------------------------------
+$box-shadow: 0 2px 3px rgba($black, 0.05), 0 0 0 1px rgba($black, 0.05);
+$card-shadow: 0 1px 2px rgba($black, 0.05), 0 0 0 1px rgba($black, 0.05);
+
+// $button-background-color: $white-ter;
+$modal-card-head-background-color: hsl(0, 0%, 97%);
+
+// radius
+// $radius: 2px;
+// $radius-large: 4px;
+
+// tabs
+$tabs-border-bottom-width: 2px;
+$tabs-link-hover-border-bottom-color: mix($primary, #fff, 50%);
+$tabs-link-active-border-bottom-color: $primary;
+$tabs-link-active-color: $primary;
+$tabs-border-bottom-color: hsl(0, 0%, 93%);
+
+$table-row-active-background-color: $link;
+$table-cell-border: 1px solid mix(#000, #fff, 8%);
+
+$menu-item-active-background-color: mix($primary, #fff, 70%);
+$menu-item-hover-background-color: rgba($primary, 0.1);
+
+
+//  bulmaに独自カラー配列を追加する
+// ------------------------------
+$secondary: #764897;
+$secondary-invert: findColorInvert($secondary);
+
+$attention: #FF851B;
+$attention-invert: findColorInvert($attention);
+
+$addColors: (
+  "secondary":($secondary, $secondary-invert),
+  "attention":($attention, $attention-invert),
+);
+$colors: map-merge($colors, $addColors);
