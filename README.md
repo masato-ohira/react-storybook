@@ -33,3 +33,7 @@ docker-compose down
 # 起動を確認
 docker-compose ps
 ```
+
+起動後は以下URLで確認できます
+
+http://localhost:19991/
