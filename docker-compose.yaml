@@ -1,0 +1,10 @@
+version: '3'
+services:
+  storybook:
+    build: .
+    restart: "no"
+    tty: true
+    environment:
+      - "TZ=Japan"
+    ports:
+      - "19991:9001"
