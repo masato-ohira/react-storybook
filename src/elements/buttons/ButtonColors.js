@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import CodeExample from '@c/example/CodeExample'
 import {state} from '@/store'
 
 function ButtonColors() {
+  // state
+  // const data = useContext
+  // console.log({data: data()})
+
   return (
     <>
       <CodeExample>
