@@ -2,26 +2,13 @@
   "name": "react-storybook",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "axios": "^0.19.2",
-    "bulma": "^0.8.0",
-    "google-code-prettify": "^1.0.5",
-    "js-beautify": "^1.10.3",
-    "lodash": "^4.17.15",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-scripts": "3.3.1",
-    "react-syntax-highlighter": "^12.2.1"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 9001 --ci"
+    "storybook": "start-storybook -p 9001 --ci",
+    "git": "git add . && git commit -a -m $M"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -38,10 +25,23 @@
       "last 1 safari version"
     ]
   },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "bulma": "^0.8.0",
+    "fs-extra": "^8.1.0",
+    "js-beautify": "^1.10.3",
+    "lodash": "^4.17.15",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-scripts": "3.3.1",
+    "react-syntax-highlighter": "^12.2.1"
+  },
   "devDependencies": {
     "@storybook/react": "^5.3.12",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
     "body-parser": "^1.19.0",
-    "node-sass": "^4.13.1",
-    "pretty": "^2.0.0"
+    "node-sass": "^4.13.1"
   }
 }

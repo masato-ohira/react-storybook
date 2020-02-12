@@ -6,20 +6,22 @@ const EntryList = () => {
   // state
   const [list, setList] = useState([])
 
+  // methods
+  const getData = async () => {
+    let { data } = await axios.get('https://api.noidea.xyz/fake/nicknames.json')
+    let newList = []
+    _.times(20, n => {
+      let names = [_.sample(data).name, _.sample(data).name]
+      newList.push({
+        id: n+1,
+        name: names.join(_.sample(['な','の','に']))
+      })
+    })
+    setList(newList)
+  }
+
   // mounted
   useEffect(() => {
-    const getData = async () => {
-      let { data } = await axios.get('https://api.noidea.xyz/fake/nicknames.json')
-      let newList = []
-      _.times(20, n => {
-        let names = [_.sample(data).name, _.sample(data).name]
-        newList.push({
-          id: n+1,
-          name: names.join(_.sample(['な','の','に']))
-        })
-      })
-      setList(newList)
-    }
     getData()
   }, [])
 

@@ -1,6 +1,6 @@
-const execCopy = (self) => {
+const execCopy = (code) => {
   let temp = document.createElement('div')
-  temp.appendChild(document.createElement('pre')).textContent = self.state.code
+  temp.appendChild(document.createElement('pre')).textContent = code
   let s = temp.style
   s.position = 'fixed'
   s.left = '-100%'

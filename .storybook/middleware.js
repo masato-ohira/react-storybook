@@ -1,13 +1,22 @@
 const bodyParser = require('body-parser')
 const beautify   = require('js-beautify').html
-// const prettify   = require('google-code-prettify/src/prettify')
+const fs         = require('fs-extra')
 
 const router = app => {
   app.use(bodyParser.json())
-  app.post('/pretty', (req, res) => {
+
+  // Sourceの内容を表示
+  app.post('/code', (req, res) => {
+    let path = req.body.path
+    let code = fs.readFileSync(path, 'utf-8')
+    res.json({ code })
+    res.end()
+  })
+
+  // htmlの整形
+  app.post('/prettify', (req, res) => {
     let html = req.body.html
-    const afterHtml = beautify(html, {
-      "allowed_file_extensions": ["htm", "html", "xhtml", "shtml", "xml", "svg", "dust"],
+    html = beautify(html, {
       "brace_style": "collapse",
       "eol": "\n",
       "end_with_newline": true,
@@ -22,10 +31,7 @@ const router = app => {
       "keep_collapsed_whitespace": false,
       "wrap_line_length": 0
     })
-
-    res.json({
-      html: afterHtml,
-    })
+    res.json({ html })
     res.end()
 
   })
